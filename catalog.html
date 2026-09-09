@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог автозапчастей — АвтоАзия</title>
+    <link rel="icon" type="image/png" href="images/favicon1.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> 
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo2.jpg" alt="logo AutoAsia" width="230" height="48">
+            </a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html" class="active">Каталог</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cart.html" class="icon-link">🛒 Корзина</a></li>
+                    <li><a href="auth.html" class="icon-link">👤 ЛК</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="catalog-section">
+            <h2>Каталог товаров</h2>
+
+            <!-- Верхняя панель поиска -->
+            <div class="search-bar-container">
+                <input type="text" id="catalog-search" placeholder="Поиск по названию детали или артикулу...">
+                <button type="button" class="search-btn">Найти</button>
+            </div>
+
+            <div class="catalog-layout">
+                <!-- Боковая панель фильтров -->
+                <aside class="catalog-filters">
+                    <h3>Фильтры</h3>
+                    
+                    <!-- Фильтр по категориям -->
+                    <div class="filter-group-box">
+                        <h4>Категория</h4>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="category" value="oil"> Масла и жидкости</label>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="category" value="brakes"> Тормозная система</label>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="category" value="filters"> Фильтры</label>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="category" value="suspension"> Подвеска</label>
+                    </div>
+
+                    <!-- Фильтр по брендам -->
+                    <div class="filter-group-box">
+                        <h4>Производитель</h4>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="brand" value="nibk"> NiBK</label>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="brand" value="liqui"> Liqui Moly</label>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="brand" value="mann"> MANN-FILTER</label>
+                        <label><input type="checkbox" class="filter-checkbox" data-type="brand" value="ctr"> CTR</label>
+                    </div>
+
+                    <!-- Фильтр по цене -->
+                    <div class="filter-group-box">
+                        <h4>Цена, ₽</h4>
+                        <div class="price-range-inputs">
+                            <input type="number" id="price-min" placeholder="от 0">
+                            <input type="number" id="price-max" placeholder="до 10000">
+                        </div>
+                    </div>
+
+                    <button type="button" class="submit-btn apply-filters-btn">Применить</button>
+                </aside>
+
+                <!-- Сетка товаров (Витрина) -->
+                <div class="products-grid">
+                    
+                    <!-- Товар 1 -->
+                    <article class="product-card-item" data-category="oil" data-brand="liqui" data-price="3500">
+                        <div class="product-image-stub">🛢️</div>
+                        <div class="product-card-info">
+                            <span class="product-brand-tag">Liqui Moly</span>
+                            <h4>Моторное масло 5W-30 (4л)</h4>
+                            <p class="product-sku">Артикул: AA-90812</p>
+                            <div class="product-card-footer">
+                                <span class="product-item-price">3 500 ₽</span>
+                                <button type="button" class="add-to-cart-btn">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Товар 2 -->
+                    <article class="product-card-item" data-category="brakes" data-brand="nibk" data-price="2200">
+                        <div class="product-image-stub">🛑</div>
+                        <div class="product-card-info">
+                            <span class="product-brand-tag">NiBK</span>
+                            <h4>Тормозные колодки передние</h4>
+                            <p class="product-sku">Артикул: NB-44501</p>
+                            <div class="product-card-footer">
+                                <span class="product-item-price">2 200 ₽</span>
+                                <button type="button" class="add-to-cart-btn">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Товар 3 -->
+                    <article class="product-card-item" data-category="filters" data-brand="mann" data-price="850">
+                        <div class="product-image-stub">🌪️</div>
+                        <div class="product-card-info">
+                            <span class="product-brand-tag">MANN-FILTER</span>
+                            <h4>Фильтр воздушный</h4>
+                            <p class="product-sku">Артикул: MN-20110</p>
+                            <div class="product-card-footer">
+                                <span class="product-item-price">850 ₽</span>
+                                <button type="button" class="add-to-cart-btn">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Товар 4 -->
+                    <article class="product-card-item" data-category="suspension" data-brand="ctr" data-price="1750">
+                        <div class="product-image-stub">🔩</div>
+                        <div class="product-card-info">
+                            <span class="product-brand-tag">CTR</span>
+                            <h4>Стойка стабилизатора передняя</h4>
+                            <p class="product-sku">Артикул: CL-0392</p>
+                            <div class="product-card-footer">
+                                <span class="product-item-price">1 750 ₽</span>
+                                <button type="button" class="add-to-cart-btn">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Уведомление, если ничего не найдено (скрыто) -->
+                    <div class="no-products-found" style="display: none; width: 100%; text-align: center; padding: 40px; color: #666;">
+                        По вашему запросу товары не найдены. Попробуйте изменить параметры фильтров.
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Все права защищены.</p>
+    </footer>
+</body>
+</html>
+       

@@ -3,39 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АвтоАзия</title>
+    <title>АвтоАзия — Запчасти для японских и корейских авто в Калининграде</title>
     <link rel="icon" type="image/png" href="images/favicon1.png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script> 
 </head>
-<body>
+<body class="page-home">
     <header>
         <div class="header-container">
-        
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/logo2.jpg" alt="logo AutoAsia" width="230" height="48">
             </a>
-            
-            
-            <nav class="navigation">
-                <ul>
-                    <li><a href="/" class="active">Главная</a></li>
-                    <li><a href="/catalog">Каталог</a></li>
-                    <li><a href="/reviews">Отзывы</a></li>
-                    <li><a href="/about">О нас</a></li>
-                    <li><a href="/cart" class="icon-link">🛒 Корзина</a></li>
-                    <li><a href="/profile" class="icon-link">👤 ЛК</a></li>
-                </ul>
-            </nav>
+                <nav class="navigation">
+                    <ul>
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="cart.html" class="icon-link">🛒 Корзина</a></li>
+                        <li><a href="auth.html" class="icon-link">👤 ЛК</a></li>
+
+                    </ul>
+                </nav>
         </div>
     </header>
 
     <main class="main-content">
-        <section>
-            <h2>Каталог товаров</h2>
-            <article>
-                <h3>Название товара</h3>
-            </article>
+        <!-- Главный промо-баннер -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1>Надежные запчасти для азиатских автомобилей</h1>
+                <p>Широкий ассортимент деталей для японских и корейских марок в Калининграде. Высокое качество, честные цены и помощь в подборе.</p>
+                <a href="catalog.html" class="cta-button">Перейти в каталог</a>
+            </div>
+        </section>
+
+        <!-- Блок преимуществ -->
+        <section class="features-section">
+            <div class="feature-card">
+                <span class="feature-icon">⚙️</span>
+                <h3>Огромный выбор</h3>
+                <p>От мелких клипс и фильтров до сложных деталей двигателя и элементов кузова.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Гарантия качества</h3>
+                <p>Работаем только с проверенными брендами и официальными дистрибьюторами.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🤝</span>
+                <h3>Профессиональный подбор</h3>
+                <p>Поможем безошибочно найти нужную деталь по VIN-коду вашего автомобиля.</p>
+            </div>
+        </section>
+
+        <!-- Популярные категории -->
+        <section class="categories-section">
+            <h2>Популярные разделы каталога</h2>
+            <div class="categories-grid">
+                <a href="catalog.html?category=oil" class="category-item-box">
+                    <span class="cat-icon"></span>
+                    <h4>Масла и жидкости</h4>
+                </a>
+                <a href="catalog.html?category=brakes" class="category-item-box">
+                    <span class="cat-icon"></span>
+                    <h4>Тормозная система</h4>
+                </a>
+                <a href="catalog.html?category=filters" class="category-item-box">
+                    <span class="cat-icon"></span>
+                    <h4>Фильтры</h4>
+                </a>
+                <a href="catalog.html?category=suspension" class="category-item-box">
+                    <span class="cat-icon"></span>
+                    <h4>Подвеска и рулевое</h4>
+                </a>
+            </div>
         </section>
     </main>
 
@@ -44,3 +86,4 @@
     </footer>
 </body>
 </html>
+

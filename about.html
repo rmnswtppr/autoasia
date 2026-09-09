@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас и контакты — АвтоАзия</title>
+    <link rel="icon" type="image/png" href="images/favicon1.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> 
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo2.jpg" alt="logo AutoAsia" width="230" height="48">
+            </a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="about.html" class="active">О нас</a></li>
+                    <li><a href="cart.html" class="icon-link">🛒 Корзина</a></li>
+                    <li><a href="auth.html" class="icon-link">👤 ЛК</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="about-section">
+            <h2>О компании АвтоАзия</h2>
+            <p class="about-description">
+                Магазин "АвтоАзия" предлагает широкий ассортимент запчастей для автомобилей японского и корейского производства. У нас вы найдете все необходимое для ремонта и обслуживания вашего автомобиля – от деталей двигателя до элементов кузова и аксессуаров. Мы работаем только с проверенными поставщиками, чтобы гарантировать качество каждой детали.
+            </p>
+
+            <div class="contacts-grid">
+                <!-- Блок с текстовыми контактами -->
+                <div class="contacts-info">
+                    <h3>Наши контакты</h3>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Адрес магазина:</strong>
+                            <p id="store-address">г. Калининград, улица Александра Суворова, 54У</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">⏰</span>
+                        <div>
+                            <strong>Режим работы:</strong>
+                            <p id="store-hours">Пн–Сб: 09:00 – 20:00<br>Вс: 09:00 – 17:00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Телефоны:</strong>
+                            <p id="store-phone">
+                                <a href="tel:+79024224242">+7 (902) 422-42-42</a><br>
+                                <a href="tel:+79003543344">+7 (900) 354-33-44</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>E-mail:</strong>
+                            <p id="store-email"><a href="mailto:autoasia39@yandex.ru">autoasia39@yandex.ru</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок со встроенной интерактивной картой проезда -->
+                <div class="contacts-map">
+                    <h3>Карта проезда</h3>
+                    <div class="map-container">
+                        <!-- Официальный и безопасный виджет Яндекс.Карт, сфокусированный на вашем филиале -->
+                        <iframe src="https://2gis.ru/kaliningrad/firm/70000001084537911" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <layout>
+dynamicMapPlaceholder(naturalLanguagePrompt="Интерактивная карта проезда к магазину АвтоАзия в Калининграде по адресу улица Александра Суворова, 54У", results=[])
+</layout>
+
+    <footer>
+        <p>&copy; 2026 Все права защищены.</p>
+    </footer>
+</body>
+</html>

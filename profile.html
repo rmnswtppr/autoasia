@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — АвтоАзия</title>
+    <link rel="icon" type="image/png" href="images/favicon1.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> 
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo2.jpg" alt="logo AutoAsia" width="230" height="48">
+            </a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cart.html" class="icon-link">🛒 Корзина</a></li>
+                    <li><a href="auth.html" class="icon-link">👤 ЛК</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="profile-section">
+            <h2>Личный кабинет</h2>
+
+            <div class="profile-layout">
+                <!-- Боковое меню ЛК -->
+                <aside class="profile-sidebar">
+                    <div class="user-avatar-block">
+                        <div class="avatar-placeholder">👤</div>
+                        <h4 class="user-display-name">Уважаемый клиент</h4>
+                    </div>
+                    <nav class="profile-menu">
+                        <button class="menu-btn active" data-tab="personal-data">📋 Личные данные</button>
+                        <button class="menu-btn" data-tab="orders-history">📦 История заказов</button>
+                    </nav>
+                </aside>
+
+                <!-- Контентная область вкладок -->
+                <div class="profile-content">
+                    
+                    <!-- Вкладка 1: Личные данные -->
+                    <div class="profile-tab-content active" id="personal-data">
+                        <h3>Мой профиль</h3>
+                        <form class="profile-form">
+                            <div class="form-group">
+                                <label for="user-name">ФИО *</label>
+                                <input type="text" id="user-name" required placeholder="Иван Иванов" value="Александр Владимирович">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-phone">Телефон *</label>
+                                <input type="tel" id="user-phone" required placeholder="+7 (999) 999-99-99" value="+7 (902) 123-45-67">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-email">E-mail</label>
+                                <input type="email" id="user-email" placeholder="example@mail.ru" value="alex39@mail.ru">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-car">Мой автомобиль (для быстрого подбора запчастей)</label>
+                                <input type="text" id="user-car" placeholder="Например: Toyota Camry 2018" value="Toyota Camry V70">
+                            </div>
+                            <button type="submit" class="submit-btn">Сохранить изменения</button>
+                        </form>
+                    </div>
+
+                    <!-- Вкладка 2: История заказов -->
+                    <div class="profile-tab-content" id="orders-history">
+                        <h3>История ваших заказов</h3>
+                        <div class="orders-list">
+                            
+                            <!-- Заказ 1 -->
+                            <div class="order-item-box">
+                                <div class="order-header">
+                                    <strong>Заказ №24018 от 12.05.2026</strong>
+                                    <span class="order-status status-completed">Выдан</span>
+                                </div>
+                                <div class="order-body">
+                                    <p>Стойки амортизатора передние (комплект 2 шт.) — 1 шт.</p>
+                                    <p class="order-total">Сумма заказа: <strong>14 200 ₽</strong></p>
+                                </div>
+                            </div>
+
+                            <!-- Заказ 2 -->
+                            <div class="order-item-box">
+                                <div class="order-header">
+                                    <strong>Заказ №23891 от 18.04.2026</strong>
+                                    <span class="order-status status-completed">Выдан</span>
+                                </div>
+                                <div class="order-body">
+                                    <p>Фильтр масляный NiBK, Масло моторное 5W-30 (4л) — 1 шт.</p>
+                                    <p class="order-total">Сумма заказа: <strong>4 150 ₽</strong></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Все права защищены.</p>
+    </footer>
+</body>
+</html>

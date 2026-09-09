@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина покупок — АвтоАзия</title>
+    <link rel="icon" type="image/png" href="images/favicon1.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> 
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo2.jpg" alt="logo AutoAsia" width="230" height="48">
+            </a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="cart.html" class="icon-link active">🛒 Корзина</a></li>
+                    <li><a href="profile.html" class="icon-link">👤 ЛК</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="cart-section">
+            <h2>Оформление заказа</h2>
+
+            <div class="cart-layout">
+                <!-- Левая часть: список добавленных автотоваров -->
+                <div class="cart-items-container">
+                    
+                    <!-- Товар 1 -->
+                    <article class="cart-item" data-price="3500">
+                        <div class="cart-item-info">
+                            <h4>Моторное масло 5W-30 (4л)</h4>
+                            <p class="item-meta">Категория: Масла и жидкости</p>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <div class="cart-item-price">3 500 ₽</div>
+                            <button class="delete-item-btn" title="Удалить из корзины">🗑️</button>
+                        </div>
+                    </article>
+
+                    <!-- Товар 2 -->
+                    <article class="cart-item" data-price="2200">
+                        <div class="cart-item-info">
+                            <h4>Тормозные колодки передние NiBK</h4>
+                            <p class="item-meta">Для моделей: Kia Rio, Hyundai Solaris</p>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <span class="qty-value">2</span>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <div class="cart-item-price">4 400 ₽</div>
+                            <button class="delete-item-btn" title="Удалить из корзины">🗑️</button>
+                        </div>
+                    </article>
+
+                    <!-- Сообщение о пустой корзине (скрыто по умолчанию) -->
+                    <div class="empty-cart-message" style="display: none;">
+                        <p>Ваша корзина пуста. Перейдите в каталог, чтобы выбрать нужные запчасти.</p>
+                        <a href="catalog.html" class="cta-button">Перейти в каталог</a>
+                    </div>
+
+                </div>
+
+                <!-- Правая часть: Блок итоговой стоимости и данных клиента -->
+                <div class="cart-summary-panel">
+                    <h3>Итого</h3>
+                    <div class="summary-row">
+                        <span>Товары (<span id="total-count">3</span> шт.)</span>
+                        <span id="subtotal-price">7 900 ₽</span>
+                    </div>
+                    <div class="summary-row font-bold total-row">
+                        <span>К оплате</span>
+                        <span id="final-price">7 900 ₽</span>
+                    </div>
+
+                    <!-- Форма заказа -->
+                    <form class="checkout-form" id="order-form">
+                        <div class="form-group">
+                            <label for="checkout-name">Ваше имя *</label>
+                            <input type="text" id="checkout-name" required placeholder="Иван Иванов">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-phone">Телефон *</label>
+                            <input type="tel" id="checkout-phone" required placeholder="+7 (999) 999-99-99">
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-method">Способ получения</label>
+                            <select id="delivery-method">
+                                <option value="pickup">Самовывоз (ул. А. Суворова, 54У)</option>
+                                <option value="delivery">Доставка по Калининграду</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn checkout-btn" id="submit-order-btn">Оформить заказ</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Все права защищены.</p>
+    </footer>
+</body>
+</html>

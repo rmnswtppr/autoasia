@@ -1,89 +1,1366 @@
+/* =========================================================
+   01. ОБЩИЕ СТИЛИ
+   ========================================================= */
 
+/* Цветовая система проекта */
+:root {
+    --color-primary: #de2d2d; /* Задаём единый цвет для ключевых кнопок и активных элементов */
+    --color-primary-hover: #b92323; /* Задаём более тёмный цвет для состояний hover */
+    --color-text: #333333; /* Задаём основной цвет текста */
+    --color-text-light: #666666; /* Задаём вторичный цвет текста */
+    --color-heading: #222222; /* Задаём цвет заголовков */
+    --color-background: #f4f6f9; /* Задаём общий цвет фона */
+    --color-surface: #ffffff; /* Задаём цвет карточек и других светлых поверхностей */
+    --color-border: #eef1f5; /* Задаём стандартный цвет границ */
+    --color-input: #fafafa; /* Задаём фон полей формы */
+}
+
+/* Базовые параметры документа */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f9; /* Мягкий светлый фон вместо ghostwhite */
-    color: #333;
+    margin: 0; /* Убираем стандартный внешний отступ браузера */
+    padding: 0; /* Убираем стандартный внутренний отступ браузера */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Задаём единый шрифт сайта */
+    background-color: var(--color-background); /* Используем единый фон сайта */
+    color: var(--color-text); /* Используем единый основной цвет текста */
 }
 
-
-.header-container, .main-content {
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
+/* Общая ширина основных контейнеров */
+.header-container,
+.main-content {
+    max-width: 1200px; /* Ограничиваем максимальную ширину контента */
+    width: 90%; /* Оставляем боковые поля на небольших экранах */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
 }
 
+/* =========================================================
+   02. ОБЩАЯ ШАПКА САЙТА
+   ========================================================= */
 
+/* Основной контейнер шапки */
 header {
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Красивая тонкая тень */
-    position: sticky; /* Шапка будет плавно оставаться наверху при скролле */
-    top: 0;
-    z-index: 100;
+    width: 100%; /* Растягиваем шапку на всю ширину экрана */
+    background-color: var(--color-surface); /* Задаём белый фон шапки */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Добавляем мягкую тень */
+    position: sticky; /* Фиксируем шапку при прокрутке */
+    top: 0; /* Прикрепляем шапку к верхней границе окна */
+    z-index: 100; /* Размещаем шапку поверх основного контента */
 }
 
+/* Внутренний контейнер шапки */
 .header-container {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Логотип слева, меню справа */
+    height: 70px; /* Задаём фиксированную высоту шапки */
+    display: flex; /* Включаем flex-разметку */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    justify-content: space-between; /* Размещаем логотип слева, меню справа */
 }
 
-
+/* Логотип */
 .logo {
-    display: flex;
-    align-items: center;
+    display: flex; /* Включаем flex-разметку логотипа */
+    align-items: center; /* Выравниваем логотип по вертикали */
 }
+
+/* Изображение логотипа */
 .logo img {
-    display: block;
-    object-fit: contain;
+    display: block; /* Убираем лишний строчный отступ изображения */
+    object-fit: contain; /* Сохраняем пропорции изображения */
 }
 
-
+/* Навигационный список */
 .navigation ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 24px; 
-    align-items: center;
+    list-style: none; /* Убираем маркеры списка */
+    margin: 0; /* Убираем стандартный внешний отступ списка */
+    padding: 0; /* Убираем стандартный внутренний отступ списка */
+    display: flex; /* Размещаем пункты в одну строку */
+    gap: 24px; /* Задаём расстояние между пунктами меню */
+    align-items: center; /* Выравниваем пункты меню по вертикали */
 }
 
+/* Обычные ссылки навигации */
 .navigation a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    font-size: 15px;
-    transition: color 0.2s ease; 
-    padding: 8px 4px;
+    text-decoration: none; /* Убираем стандартное подчёркивание */
+    color: #555555; /* Задаём цвет обычной ссылки */
+    font-weight: 500; /* Делаем текст ссылки умеренно жирным */
+    font-size: 15px; /* Задаём размер текста */
+    transition: color 0.2s ease, border-color 0.2s ease; /* Плавно меняем цвет и границу */
+    padding: 6px 4px; /* Добавляем область клика */
+    display: inline-block; /* Позволяем корректно применять размеры и отступы */
+    border-bottom: 2px solid transparent; /* Резервируем место под активную границу без скачка layout */
 }
 
-
+/* Hover обычной ссылки */
 .navigation a:hover {
-    color: #0066cc; 
+    color: var(--color-primary); /* Подсвечиваем ссылку фирменным красным */
 }
 
-
+/* Активный пункт навигации */
 .navigation a.active {
-    color: #0066cc;
-    border-bottom: 2px solid #0066cc;
+    color: var(--color-primary); /* Подсвечиваем активную страницу фирменным красным */
+    border-bottom-color: var(--color-primary); /* Показываем активную нижнюю границу */
 }
 
-
+/* Кнопки Корзины и ЛК в навигации */
 .navigation .icon-link {
-    background-color: #f0f4f8;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 14px;
+    background-color: #f0f4f8; /* Задаём нейтральный фон кнопки */
+    padding: 8px 14px; /* Увеличиваем область клика */
+    border-radius: 20px; /* Скругляем кнопку */
+    font-size: 14px; /* Немного уменьшаем размер текста */
+    border-bottom: none; /* Убираем нижнюю границу навигации */
 }
+
+/* Hover кнопок Корзины и ЛК */
 .navigation .icon-link:hover {
+    background-color: var(--color-primary); /* Используем единый цвет ключевых кнопок */
+    color: #ffffff; /* Делаем текст контрастным */
+}
+
+/* Основной контент */
+.main-content {
+    padding-top: 30px; /* Отделяем контент от шапки */
+}
+
+/* =========================================================
+   03. ГЛАВНАЯ СТРАНИЦА
+   Селекторы используются только блоками главной страницы.
+   ========================================================= */
+
+/* Hero-баннер */
+.hero-banner {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); /* Создаём тёмный градиент баннера */
+    color: #ffffff; /* Делаем основной текст баннера белым */
+    padding: 60px 40px; /* Задаём внутренние отступы баннера */
+    border-radius: 12px; /* Скругляем углы баннера */
+    margin-bottom: 40px; /* Отделяем баннер от следующего блока */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Добавляем мягкую тень */
+}
+
+/* Контент Hero */
+.hero-content {
+    max-width: 650px; /* Ограничиваем ширину текста для читаемости */
+}
+
+/* Заголовок Hero */
+.hero-content h1 {
+    font-size: 2.3rem; /* Увеличиваем размер главного заголовка */
+    margin-top: 0; /* Убираем верхний отступ заголовка */
+    margin-bottom: 16px; /* Добавляем расстояние до описания */
+    line-height: 1.2; /* Уменьшаем межстрочный интервал крупного заголовка */
+    font-weight: 700; /* Делаем главный заголовок жирным */
+}
+
+/* Описание Hero */
+.hero-content p {
+    font-size: 1.1rem; /* Увеличиваем размер описания */
+    line-height: 1.6; /* Улучшаем читаемость текста */
+    color: #cbd5e1; /* Используем приглушённый цвет текста */
+    margin-bottom: 30px; /* Отделяем описание от кнопки */
+}
+
+/* Ключевая кнопка главной страницы */
+.cta-button {
+    display: inline-block; /* Позволяем корректно задавать размеры ссылки-кнопки */
+    background-color: var(--color-primary); /* Используем требуемый цвет #de2d2d */
+    color: #ffffff; /* Делаем текст кнопки белым */
+    text-decoration: none; /* Убираем подчёркивание ссылки */
+    padding: 14px 28px; /* Формируем удобную область клика */
+    border-radius: 6px; /* Скругляем кнопку */
+    font-weight: 600; /* Выделяем текст кнопки */
+    font-size: 1rem; /* Задаём стандартный размер текста */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Плавно анимируем hover */
+}
+
+/* Hover ключевой кнопки */
+.cta-button:hover {
+    background-color: var(--color-primary-hover); /* Затемняем красный при наведении */
+    transform: translateY(-1px); /* Слегка поднимаем кнопку */
+}
+
+/* Блок преимуществ */
+.features-section {
+    display: flex; /* Включаем flex-разметку */
+    flex-wrap: wrap; /* Разрешаем перенос карточек */
+    gap: 20px; /* Задаём расстояние между карточками */
+    margin-bottom: 50px; /* Отделяем блок от категорий */
+}
+
+/* Карточка преимущества */
+.feature-card {
+    background: var(--color-surface); /* Задаём белый фон карточки */
+    padding: 25px; /* Добавляем внутренние отступы */
+    border-radius: 8px; /* Скругляем карточку */
+    flex: 1; /* Разрешаем карточкам равномерно занимать доступную ширину */
+    min-width: 280px; /* Не позволяем карточке становиться слишком узкой */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Добавляем лёгкую тень */
+    border: 1px solid var(--color-border); /* Добавляем тонкую границу */
+}
+
+/* Иконка преимущества */
+.feature-icon {
+    font-size: 2rem; /* Увеличиваем размер иконки */
+    display: block; /* Переводим иконку в блочный элемент */
+    margin-bottom: 12px; /* Отделяем иконку от заголовка */
+}
+
+/* Заголовок карточки преимущества */
+.feature-card h3 {
+    margin: 0 0 10px 0; /* Убираем лишний верхний отступ и задаём нижний */
+    font-size: 1.2rem; /* Задаём размер заголовка */
+    color: var(--color-heading); /* Используем единый цвет заголовков */
+}
+
+/* Текст карточки преимущества */
+.feature-card p {
+    margin: 0; /* Убираем стандартный отступ абзаца */
+    color: var(--color-text-light); /* Используем вторичный цвет текста */
+    line-height: 1.5; /* Улучшаем читаемость */
+    font-size: 0.95rem; /* Немного уменьшаем размер текста */
+}
+
+/* Блок категорий */
+.categories-section {
+    margin-bottom: 60px; /* Добавляем пространство после блока */
+}
+
+/* Заголовок категорий */
+.categories-section h2 {
+    font-size: 1.6rem; /* Задаём размер заголовка */
+    color: var(--color-heading); /* Используем единый цвет заголовков */
+    margin-bottom: 25px; /* Отделяем заголовок от карточек */
+}
+
+/* Сетка категорий */
+.categories-grid {
+    display: flex; /* Включаем flex-разметку */
+    flex-wrap: wrap; /* Разрешаем перенос категорий */
+    gap: 20px; /* Задаём расстояние между категориями */
+}
+
+/* Карточка категории */
+.category-item-box {
+    background: var(--color-surface); /* Задаём белый фон */
+    border: 1px solid var(--color-border); /* Задаём стандартную границу */
+    border-radius: 8px; /* Скругляем карточку */
+    padding: 20px; /* Добавляем внутренние отступы */
+    text-align: center; /* Центрируем содержимое */
+    text-decoration: none; /* Убираем подчёркивание ссылки */
+    color: var(--color-text); /* Задаём цвет текста */
+    flex: 1; /* Разрешаем карточкам занимать доступную ширину */
+    min-width: 220px; /* Ограничиваем минимальную ширину */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); /* Добавляем лёгкую тень */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* Плавно анимируем состояние hover */
+}
+
+/* Hover категории */
+.category-item-box:hover {
+    transform: translateY(-3px); /* Поднимаем карточку */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06); /* Усиливаем тень */
+    border-color: var(--color-primary); /* Подсвечиваем границу красным */
+}
+
+/* Иконка категории */
+.cat-icon {
+    font-size: 2.2rem; /* Увеличиваем размер иконки */
+    display: block; /* Переводим иконку в отдельный блок */
+    margin-bottom: 10px; /* Отделяем иконку от названия */
+}
+
+/* Название категории */
+.category-item-box h4 {
+    margin: 0; /* Убираем стандартный отступ */
+    font-size: 1.05rem; /* Задаём размер текста */
+    font-weight: 600; /* Выделяем название категории */
+}
+
+/* =========================================================
+   04. СТРАНИЦА ОТЗЫВОВ
+   ========================================================= */
+
+/* Основной блок отзывов */
+.reviews-section {
+    padding: 40px 0; /* Добавляем вертикальные отступы */
+}
+
+/* Заголовки раздела отзывов */
+.reviews-section h2,
+.reviews-section h3 {
+    color: var(--color-heading); /* Используем единый цвет заголовков */
+    margin-bottom: 25px; /* Добавляем расстояние после заголовка */
+}
+
+/* Контейнер внешних отзывов */
+.external-reviews-container {
+    background-color: var(--color-surface); /* Задаём белый фон */
+    padding: 24px; /* Добавляем внутренние отступы */
+    border-radius: 8px; /* Скругляем контейнер */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Добавляем лёгкую тень */
+    margin-bottom: 35px; /* Отделяем внешний блок от следующих элементов */
+}
+
+/* Заголовок внешних отзывов */
+.external-title {
+    margin-top: 0; /* Убираем верхний отступ */
+    margin-bottom: 18px; /* Добавляем расстояние до карточек */
+    font-weight: 500; /* Задаём среднюю толщину шрифта */
+    color: #444444; /* Задаём нейтральный цвет */
+}
+
+/* Сетка внешних отзывов */
+.external-reviews-badges {
+    display: flex; /* Включаем flex-разметку */
+    flex-wrap: wrap; /* Разрешаем перенос карточек */
+    gap: 15px; /* Задаём расстояние между карточками */
+}
+
+/* Карточка внешнего отзыва */
+.review-badge {
+    display: flex; /* Размещаем иконку и текст в одну строку */
+    align-items: center; /* Выравниваем содержимое по вертикали */
+    gap: 14px; /* Задаём расстояние между иконкой и текстом */
+    padding: 12px 20px; /* Добавляем внутренние отступы */
+    border-radius: 8px; /* Скругляем карточку */
+    text-decoration: none; /* Убираем подчёркивание ссылки */
+    color: var(--color-text); /* Задаём цвет текста */
+    font-size: 0.95rem; /* Задаём размер текста */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* Плавно анимируем состояние hover */
+    border: 1px solid var(--color-border); /* Добавляем стандартную границу */
+    flex: 1; /* Разрешаем карточкам делить доступное место */
+    min-width: 240px; /* Ограничиваем минимальную ширину */
+    background: var(--color-surface); /* Задаём белый фон */
+    overflow: hidden; /* Скрываем выходящие за границы элементы */
+}
+
+/* Hover внешнего отзыва */
+.review-badge:hover {
+    transform: translateY(-2px); /* Слегка поднимаем карточку */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Усиливаем тень */
+}
+
+/* Цветные границы платформ отзывов сохраняем только для их собственных карточек */
+.avito-badge:hover {
+    border-color: #98ce00; /* Показываем фирменную границу Avito */
+}
+
+.yandex-badge:hover {
+    border-color: #ffcc00; /* Показываем фирменную границу Яндекса */
+}
+
+.dgis-badge:hover {
+    border-color: #2bb34b; /* Показываем фирменную границу 2ГИС */
+}
+
+/* Общая область иконки площадки */
+.badge-icon {
+    width: 32px; /* Задаём ширину иконки */
+    height: 32px; /* Задаём высоту иконки */
+    border-radius: 50%; /* Делаем иконку круглой */
+    background-size: cover; /* Заполняем область изображением */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Запрещаем повтор изображения */
+    flex-shrink: 0; /* Не разрешаем flex сжимать иконку */
+}
+
+/* Иконка Avito */
+.icon-avito {
+    background-image: url('images/avito.png'); /* Подключаем изображение Avito */
+    transform: scale(1.15); /* Компенсируем белые поля изображения */
+}
+
+/* Иконка Яндекса */
+.icon-yandex {
+    background-image: url('images/yandex.png'); /* Подключаем изображение Яндекса */
+    transform: scale(1.05); /* Компенсируем небольшие поля изображения */
+}
+
+/* Иконка 2ГИС */
+.icon-2gis {
+    background-image: url('images/2gis.png'); /* Используем корректное имя файла 2gis.png */
+    transform: scale(1.1); /* Компенсируем поля изображения */
+}
+
+/* Текст внешнего отзыва */
+.badge-text {
+    display: flex; /* Включаем flex-разметку */
+    flex-direction: column; /* Размещаем строки вертикально */
+    gap: 2px; /* Добавляем небольшой промежуток между строками */
+}
+
+/* Основной текст внешнего отзыва */
+.badge-text strong {
+    font-size: 1.05rem; /* Немного увеличиваем основной текст */
+}
+
+/* Дополнительный текст внешнего отзыва */
+.badge-text span {
+    color: var(--color-text-light); /* Используем вторичный цвет */
+    font-size: 0.85rem; /* Уменьшаем размер дополнительного текста */
+}
+
+/* Список внутренних отзывов */
+.reviews-list {
+    display: flex; /* Включаем flex-разметку */
+    flex-direction: column; /* Размещаем отзывы вертикально */
+    gap: 20px; /* Задаём расстояние между отзывами */
+    margin-bottom: 50px; /* Отделяем список от формы */
+}
+
+/* Карточка внутреннего отзыва */
+.review-card {
+    background: var(--color-surface); /* Задаём белый фон */
+    margin-top: 10px; /* Добавляем небольшой верхний отступ */
+    padding: 20px; /* Добавляем внутренние отступы */
+    border-radius: 8px; /* Скругляем карточку */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Добавляем лёгкую тень */
+}
+
+/* Шапка отзыва */
+.review-header {
+    display: flex; /* Размещаем имя и дату в строку */
+    justify-content: space-between; /* Разводим имя и дату по краям */
+    margin-bottom: 5px; /* Отделяем шапку от рейтинга */
+    font-size: 1.1rem; /* Увеличиваем размер текста */
+}
+
+/* Дата отзыва */
+.review-date {
+    color: #888888; /* Делаем дату менее заметной */
+    font-size: 0.9rem; /* Уменьшаем размер даты */
+}
+
+/* Рейтинг отзыва */
+.review-rating {
+    margin-bottom: 12px; /* Отделяем рейтинг от текста */
+    font-size: 0.9rem; /* Уменьшаем размер рейтинга */
+}
+
+/* Текст отзыва */
+.review-card p {
+    margin: 0; /* Убираем стандартный отступ абзаца */
+    line-height: 1.6; /* Улучшаем читаемость */
+    color: #555555; /* Используем нейтральный цвет текста */
+}
+
+/* Контейнер формы отзыва */
+.review-form-container {
+    background: var(--color-surface); /* Задаём белый фон */
+    padding: 30px; /* Добавляем внутренние отступы */
+    border-radius: 8px; /* Скругляем контейнер */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Добавляем мягкую тень */
+    max-width: 600px; /* Ограничиваем ширину формы */
+}
+
+/* Группа поля формы */
+.form-group {
+    margin-bottom: 20px; /* Отделяем поля друг от друга */
+    display: flex; /* Включаем flex-разметку */
+    flex-direction: column; /* Размещаем label и поле вертикально */
+    gap: 8px; /* Задаём расстояние между label и полем */
+}
+
+/* Подпись поля */
+.form-group label {
+    font-weight: 500; /* Выделяем подпись поля */
+    font-size: 0.95rem; /* Задаём размер подписи */
+}
+
+/* Поля формы */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px; /* Добавляем удобную область ввода */
+    border: 1px solid #dddddd; /* Задаём стандартную границу */
+    border-radius: 6px; /* Скругляем поле */
+    font-family: inherit; /* Наследуем шрифт сайта */
+    font-size: 1rem; /* Задаём размер текста */
+    background-color: var(--color-input); /* Задаём светлый фон поля */
+    transition: border-color 0.3s, background-color 0.3s; /* Плавно анимируем фокус */
+    box-sizing: border-box; /* Включаем границу и padding в расчёт ширины */
+    width: 100%; /* Растягиваем поле на ширину родителя */
+}
+
+/* Состояние фокуса полей */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none; /* Убираем стандартный outline браузера */
+    border-color: var(--color-primary); /* Подсвечиваем активное поле красным */
+    background-color: var(--color-surface); /* Делаем фон активного поля белым */
+}
+
+/* Ключевая кнопка отправки отзыва */
+.submit-btn {
+    background-color: var(--color-primary); /* Используем требуемый цвет #de2d2d */
+    color: #ffffff; /* Делаем текст кнопки белым */
+    padding: 14px 28px; /* Формируем удобную область клика */
+    border: none; /* Убираем стандартную границу кнопки */
+    border-radius: 6px; /* Скругляем кнопку */
+    font-size: 1rem; /* Задаём размер текста */
+    font-weight: 600; /* Выделяем текст кнопки */
+    cursor: pointer; /* Показываем курсор клика */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Плавно анимируем hover */
+}
+
+/* Hover кнопки отправки */
+.submit-btn:hover {
+    background-color: var(--color-primary-hover); /* Затемняем красный при наведении */
+    transform: translateY(-1px); /* Слегка поднимаем кнопку */
+}
+
+/* =========================================================
+   05. СТРАНИЦА «О НАС»
+   ========================================================= */
+
+/* Описание страницы */
+.about-description {
+    font-size: 1.1rem; /* Увеличиваем размер описания */
+    line-height: 1.7; /* Улучшаем читаемость */
+    color: #4c525d; /* Задаём нейтральный цвет текста */
+    max-width: 900px; /* Ограничиваем ширину строки */
+    margin-bottom: 40px; /* Отделяем описание от контактов */
+}
+
+/* Сетка контактов и карты */
+.contacts-grid {
+    display: flex; /* Включаем flex-разметку */
+    flex-wrap: wrap; /* Разрешаем перенос блоков */
+    gap: 40px; /* Задаём расстояние между информацией и картой */
+    margin-bottom: 60px; /* Отделяем блок от следующего контента */
+}
+
+/* Информационный блок контактов */
+.contacts-info {
+    flex: 1; /* Разрешаем блоку занимать свободное место */
+    min-width: 300px; /* Ограничиваем минимальную ширину */
+    background: var(--color-surface); /* Задаём белый фон */
+    padding: 30px; /* Добавляем внутренние отступы */
+    border-radius: 8px; /* Скругляем блок */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Добавляем лёгкую тень */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+/* Контейнер карты */
+.contacts-map {
+    flex: 1.5; /* Делаем карту шире информационного блока */
+    min-width: 350px; /* Ограничиваем минимальную ширину карты */
+}
+
+/* Строка контакта */
+.contact-item {
+    display: flex; /* Размещаем иконку и текст в строку */
+    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+    gap: 16px; /* Задаём расстояние между иконкой и текстом */
+    margin-bottom: 24px; /* Отделяем контакты друг от друга */
+}
+
+/* Убираем отступ у последнего контакта */
+.contact-item:last-child {
+    margin-bottom: 0; /* Убираем лишнее место после последнего элемента */
+}
+
+/* Иконка контакта */
+.contact-icon {
+    font-size: 1.5rem; /* Увеличиваем размер иконки */
+    line-height: 1.2; /* Настраиваем высоту строки */
+}
+
+/* Заголовок контакта */
+.contact-item strong {
+    font-size: 1.05rem; /* Задаём размер заголовка */
+    color: var(--color-heading); /* Используем единый цвет заголовков */
+    display: block; /* Переводим заголовок в блочный элемент */
+    margin-bottom: 4px; /* Отделяем заголовок от значения */
+}
+
+/* Значение контакта */
+.contact-item p {
+    margin: 0; /* Убираем стандартный отступ абзаца */
+    color: #555555; /* Задаём нейтральный цвет */
+    line-height: 1.5; /* Улучшаем читаемость */
+}
+
+/* Ссылки контактов */
+.contact-item a {
+    color: var(--color-primary); /* Используем фирменный красный вместо старого синего */
+    text-decoration: none; /* Убираем подчёркивание */
+    transition: color 0.2s ease; /* Плавно меняем цвет */
+}
+
+/* Hover ссылок контактов */
+.contact-item a:hover {
+    color: var(--color-primary-hover); /* Затемняем ссылку при наведении */
+    text-decoration: underline; /* Показываем подчёркивание при наведении */
+}
+
+/* Контейнер интерактивной карты */
+.map-container {
+    width: 100%; /* Растягиваем карту на всю ширину контейнера */
+    height: 380px; /* Задаём высоту карты */
+    background-color: #e5e3db; /* Задаём запасной фон до загрузки карты */
+    border-radius: 8px; /* Скругляем карту */
+    overflow: hidden; /* Скрываем выходящее содержимое карты */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Добавляем мягкую тень */
+    border: 1px solid var(--color-border); /* Добавляем стандартную границу */
+}
+
+/* =========================================================
+   06. ЛИЧНЫЙ КАБИНЕТ
+   ========================================================= */
+.profile-section {
+    padding: 30px 0 60px 0;
+}
+
+.profile-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* Боковая панель */
+.profile-sidebar {
+    flex: 1;
+    min-width: 250px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    align-self: flex-start;
+}
+
+.user-avatar-block {
+    text-align: center;
+    border-bottom: 1px solid #eef1f5;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar-placeholder {
+    width: 70px;
+    height: 70px;
+    background-color: #f0f4f8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 12px auto;
+    color: #0066cc;
+}
+
+.user-display-name {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+/* Кнопки меню */
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #555;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    width: 100%;
+}
+
+.menu-btn:hover {
+    background-color: #f4f6f9;
+    color: #0066cc;
+}
+
+.menu-btn.active {
+    background-color: #e6f0fa;
+    color: #0066cc;
+}
+
+/* Область контента вкладок */
+.profile-content {
+    flex: 3;
+    min-width: 320px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.profile-tab-content {
+    display: none; /* Скрываем все вкладки по умолчанию */
+}
+
+.profile-tab-content.active {
+    display: block; /* Показываем только активную */
+}
+
+.profile-tab-content h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #222;
+    border-bottom: 2px solid #f4f6f9;
+    padding-bottom: 10px;
+}
+
+.profile-form {
+    max-width: 500px;
+}
+
+/* Оформление списка заказов */
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-item-box {
+    border: 1px solid #eef1f5;
+    border-radius: 6px;
+    padding: 16px;
+    background-color: #fafafa;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eef1f5;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.order-status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.status-completed {
+    background-color: #e2f7e7;
+    color: #1a7f37;
+}
+
+.order-body p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.order-total {
+    margin-top: 10px !important;
+    border-top: 1px dashed #ddd;
+    padding-top: 8px;
+    text-align: right;
+    font-size: 1rem !important;
+}
+/* =========================================================
+   07. СТРАНИЦА АВТОРИЗАЦИИ
+   ========================================================= */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 80px 0;
+}
+
+.auth-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eef1f5;
+    overflow: hidden;
+}
+
+/* Переключатели вкладок сверху */
+.auth-tabs {
+    display: flex;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #eef1f5;
+}
+
+.auth-tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #777;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+    text-align: center;
+}
+
+.auth-tab-btn:hover {
+    color: #0066cc;
+    background-color: #f1f5f9;
+}
+
+.auth-tab-btn.active {
+    color: #0066cc;
+    background-color: #ffffff;
+    border-bottom: 2px solid #0066cc;
+    margin-bottom: -1px; /* Перекрывает нижнюю границу */
+}
+
+/* Область контента форм */
+.auth-form-content {
+    display: none;
+    padding: 30px;
+}
+
+.auth-form-content.active {
+    display: block;
+}
+
+.auth-form-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    color: #222;
+    text-align: center;
+}
+
+.auth-form .form-group {
+    margin-bottom: 18px;
+}
+
+.auth-remember {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.auth-remember input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.05rem;
+    margin-top: 5px;
+}
+
+/* =========================================================
+   08. КОРЗИНА
+   ========================================================= */
+/* --- Стили Страницы Корзины --- */
+.cart-section {
+    padding: 30px 0 60px 0;
+}
+
+.cart-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.cart-items-container {
+    flex: 2;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Карточка товара в корзине */
+.cart-item {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef1f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cart-item-info h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.item-meta {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: auto;
+    flex-wrap: wrap;
+}
+
+/* Элементы управления количеством (+/-) */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    background-color: #f0f4f8;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.qty-btn:hover {
     background-color: #e1e8f0;
 }
 
+.qty-value {
+    width: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.cart-item-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    min-width: 90px;
+    text-align: right;
+}
+
+.delete-item-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.delete-item-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Блок расчета стоимости */
+.cart-summary-panel {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef1f5;
+    align-self: flex-start;
+}
+
+.cart-summary-panel h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f4f6f9;
+    padding-bottom: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.total-row {
+    border-top: 1px dashed #ddd;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.checkout-form {
+    margin-top: 25px;
+}
+
+.checkout-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+}
+
+/* Сообщение о пустой корзине */
+.empty-cart-message {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eef1f5;
+}
+
+.empty-cart-message p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/* =========================================================
+   09. КАТАЛОГ
+   ========================================================= */
+/* --- Стили Страницы Каталога --- */
+.catalog-section {
+    padding: 20px 0 60px 0;
+}
+
+/* Строка поиска */
+.search-bar-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#catalog-search {
+    flex: 1;
+    padding: 14px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+#catalog-search:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+.search-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+    background-color: #111;
+}
+
+/* Лейаут: Фильтры + Сетка */
+.catalog-layout {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Боковая панель фильтрации */
+.catalog-filters {
+    flex: 1;
+    min-width: 260px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef1f5;
+    align-self: flex-start;
+}
+
+.catalog-filters h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f4f6f9;
+}
+
+.filter-group-box {
+    margin-bottom: 25px;
+}
+
+.filter-group-box h4 {
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group-box label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.filter-group-box {
+  font-size: 0.95rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.filter-group-box input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Диапазон цен */
+.price-range-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.price-range-inputs input {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.apply-filters-btn {
+  width: 100%;
+  padding: 12px;
+}
+
+/* Сетка товаров */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  flex: 3;
+  min-width: 320px;
+  align-content: flex-start;
+}
+
+/* Карточка товара */
+.product-card-item {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #eef1f5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Заглушка изображения */
+.product-image-stub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  font-size: 3.5rem;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Информация о товаре */
+.product-card-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px;
+}
+
+.product-brand-tag {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0066cc;
+  text-transform: uppercase;
+}
+
+.product-card-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #222;
+}
+
+.product-sku {
+  margin: 0 0 16px 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Подвал карточки */
+.product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto; /* Прижимает цену и кнопку к низу карточки */
+}
+
+.product-item-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Кнопка добавления в корзину */
+.add-to-cart-btn {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0066cc;
+  background-color: #f0f4f8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.add-to-cart-btn:hover {
+  color: #ffffff;
+  background-color: #0066cc;
+}
 
 
-.main-content {
-    padding-top: 30px;
+/* =========================================================
+   0. ОБЩИЙ ПОДВАЛ
+   ========================================================= */
+
+/* Подвал сайта */
+footer {
+    text-align: center; /* Центрируем содержимое */
+    padding: 20px 0; /* Добавляем вертикальные отступы */
+    color: #777777; /* Делаем текст менее контрастным */
+    font-size: 0.9rem; /* Немного уменьшаем размер текста */
+}
+
+/* =========================================================
+   0. АДАПТИВНОСТЬ
+   ========================================================= */
+
+/* Планшеты и небольшие экраны */
+@media (max-width: 768px) {
+    .header-container {
+        height: auto; /* Разрешаем шапке увеличиваться при переносе */
+        min-height: 70px; /* Сохраняем комфортную минимальную высоту */
+        flex-direction: column; /* Размещаем логотип и меню вертикально */
+        justify-content: center; /* Центрируем элементы по вертикали */
+        gap: 10px; /* Добавляем расстояние между логотипом и меню */
+        padding: 10px 0; /* Добавляем вертикальные отступы */
+        box-sizing: border-box; /* Учитываем padding в высоте */
+    }
+
+    .navigation ul {
+        flex-wrap: wrap; /* Разрешаем перенос пунктов меню */
+        justify-content: center; /* Центрируем пункты после переноса */
+        gap: 10px; /* Уменьшаем расстояние между пунктами */
+    }
+
+    .hero-banner {
+        padding: 40px 25px; /* Уменьшаем внутренние отступы баннера */
+    }
+
+    .hero-content h1 {
+        font-size: 1.9rem; /* Уменьшаем главный заголовок */
+    }
+
+    .contacts-map {
+        min-width: 100%; /* Разрешаем карте занимать всю ширину */
+    }
+
+    .contacts-info {
+        min-width: 100%; /* Разрешаем контактам занимать всю ширину */
+    }
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+    .header-container,
+    .main-content {
+        width: calc(100% - 30px); /* Оставляем компактные поля по краям */
+    }
+
+    .navigation ul {
+        gap: 6px; /* Дополнительно уменьшаем расстояние в меню */
+    }
+
+    .navigation a {
+        font-size: 14px; /* Уменьшаем текст меню */
+        padding: 5px 3px; /* Уменьшаем область отдельных ссылок */
+    }
+
+    .hero-banner {
+        padding: 30px 20px; /* Уменьшаем отступы баннера */
+        border-radius: 8px; /* Немного уменьшаем скругление */
+    }
+
+    .hero-content h1 {
+        font-size: 1.6rem; /* Уменьшаем заголовок для телефона */
+    }
+
+    .cta-button,
+    .submit-btn {
+        width: 100%; /* Растягиваем ключевые кнопки на ширину экрана */
+        box-sizing: border-box; /* Учитываем padding в ширине кнопок */
+        text-align: center; /* Центрируем текст кнопок */
+    }
+
+    .feature-card,
+    .category-item-box {
+        min-width: 100%; /* Переводим карточки в одну колонку */
+        box-sizing: border-box; /* Учитываем padding и border в ширине */
+    }
+
+    .review-badge {
+        min-width: 100%; /* Растягиваем карточки отзывов на всю ширину */
+        box-sizing: border-box; /* Учитываем padding и border в ширине */
+    }
+
+    .review-form-container {
+        padding: 20px; /* Уменьшаем отступы формы */
+        box-sizing: border-box; /* Учитываем padding в ширине */
+    }
+
+    .contacts-grid {
+        gap: 20px; /* Уменьшаем расстояние между контактами и картой */
+    }
+
+    .map-container {
+        height: 300px; /* Уменьшаем высоту карты на телефоне */
+    }
 }
